@@ -18,13 +18,15 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
-from messanger.views import index, register
+from messanger.views import index, register, new_msg
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
 
-    path('', index),
-    path('login/', LoginView.as_view, name='login'),
+    path('', index, name="index"),
+    path('login/', LoginView.as_view(), name='login'),
     path('register/', register, name='register'),
+
+    path('new-msg/', new_msg, name='new_msg'),
 ]

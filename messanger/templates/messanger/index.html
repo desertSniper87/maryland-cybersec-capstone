@@ -15,13 +15,31 @@
     SIMPLE MESSENGER
 </h3>
 
-<h4 class="center">
-    <a href="{% url 'login' %}">Login</a>
-</h4>
+{% if not request.user.is_authenticated %}
+    <h4 class="center">
+        <a href="{% url 'login' %}">Login</a>
+    </h4>
 
-<h4 class="center">
-    <a href="{% url 'register' %}">Register</a>
-</h4>
+    <h4 class="center">
+        <a href="{% url 'register' %}">Register</a>
+    </h4>
+{% else %}
+    <h4 class="center">Your Messages</h4>
+    {% for m in msgs %}
+        <div class="center" style="border: 1px solid grey;">
+            <h5 class="center">From: {{ m.sender }}</h5>
+            <p class="center">{{ m.content }}</p>
+        </div>
+    {% endfor %}
+
+    <h4 class="center">
+        <a href="{% url 'new_msg' %}">Send New Message</a>
+    </h4>
+
+    <h4 class="center">
+        <a href="{% url 'logout' %}">Logout</a>
+    </h4>
+{% endif %}
 
 
 
