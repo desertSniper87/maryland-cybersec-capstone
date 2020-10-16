@@ -55,7 +55,8 @@ ROOT_URLCONF = 'messanger.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'messanger/templates')],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'messanger/templates'),
+                 os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

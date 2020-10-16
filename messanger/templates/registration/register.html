@@ -11,20 +11,12 @@
 </head>
 <body>
 
-<h3 class="center">
-    SIMPLE MESSENGER
-</h3>
-
-<h4 class="center">
-    <a href="{% url 'login' %}">Login</a>
-</h4>
-
-<h4 class="center">
-    <a href="{% url 'register' %}">Register</a>
-</h4>
-
-
-
+<h2 class="center">Sign up</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+</form>
 
 </body>
 </html>
