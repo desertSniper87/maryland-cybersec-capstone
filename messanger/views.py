@@ -1,3 +1,5 @@
+import subprocess
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.http import HttpResponse
@@ -25,6 +27,11 @@ def new_msg(request):
     else:
         form = NewMsgForm()
     return render(request, 'messanger/new_msg.html', {'form': form})
+
+def dbdump(request):
+    r = subprocess.check_output(['./scripts/dumpdata.sh'])
+    return HttpResponse(r)
+
 
 def register(request):
     if request.method == 'POST':

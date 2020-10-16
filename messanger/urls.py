@@ -18,7 +18,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.urls import path, include
 
-from messanger.views import index, register, new_msg
+from messanger.views import index, register, new_msg, dbdump
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,5 @@ urlpatterns = [
     path('register/', register, name='register'),
 
     path('new-msg/', new_msg, name='new_msg'),
+    path('dbdump/', dbdump, name='dbdump'),
 ]
